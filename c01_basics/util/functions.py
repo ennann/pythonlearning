@@ -28,7 +28,7 @@ def create_device(device_index=1, subnet_index=1, random_ip=False):
 
     # 设备IP地址
     # device["ip"] = "192.168." + str(subnet_index) + "." + str(device_index)
-    if random_ip == True:
+    if random_ip:
         device["ip"] = "192.168." + str(subnet_index) + "." + str(device_index)
     else:
         device["ip"] = "192.168." + str(subnet_index) + "." + str(device_index)
@@ -93,7 +93,7 @@ def create_network(num_devices=1, unm_subnets=1):
     for device in devices:
         subnet_address_bytes = device["ip"].split(".")
         subnet_address_bytes[3] = "0"   # 检查最后一个IP地址
-        subnet_address = ".".join(subnet_address_bytes) # 聚合IP地址
+        subnet_address = ".".join(subnet_address_bytes)  # 聚合IP地址
 
         if subnet_address not in network["subnets"]:
 
@@ -102,7 +102,7 @@ def create_network(num_devices=1, unm_subnets=1):
 
         network["subnets"][subnet_address]["devices"].append(device)
     interfaces = list()
-    for index in range(0,choice([2, 4, 6])):
+    for index in range(0, choice([2, 4, 6])):
         interface = {
             "name": "g/0/0/"+str(index),
             "speed": choice(["100", "200", "500", "1000"])
