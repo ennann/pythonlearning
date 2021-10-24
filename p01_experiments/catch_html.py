@@ -11,5 +11,5 @@ r = requests.get('https://www.baidu.com/')
 
 print(r.status_code)
 # print(r.text)
-print(r.json())
+# print(r.json())
 soup = BeautifulSoup(html, 'lxml')
