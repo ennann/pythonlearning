@@ -27,7 +27,7 @@ s = """
 <div class='NAT'><spam id='5'>AnyHK</spam></div>
 """
 
-obj_css = re.compile(r"div class='(?P<Type>.*?)'><spam id='\d+'>(?P<Host>.*?)</spam></div>", re.S) # re.s: make dot(.) can find new line.
+obj_css = re.compile(r"div class='(?P<Type>.*?)'><spam id='\d+'>(?P<Host>.*?)</spam></div>", re.S) # re.S: make dot(.) can find new line.
 results = obj_css.finditer(s)
 
 # temp storage
