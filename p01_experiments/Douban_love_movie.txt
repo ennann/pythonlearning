@@ -15,7 +15,7 @@
                 <span style="font-size:20px;font-weight:bold">豆瓣</span> d<span style="color:#0092c8">o</span><span style="color:#ffad68">u</span><span>b</span><span style="color:#0092c8">a</span><span style="color:#ffad68">n</span>
             </div>
             <h1>登录跳转</h1>
-            <div><p>有异常请求从你的 IP 发出，请 <a href="https://accounts.douban.com/passport/login?redir=https%3A%2F%2Fmovie.douban.com%2Fj%2Fchart%2Ftop_list%3Ftype%3D13%26interval_id%3D100%253A90%26action%3D%26start%3D4%26limit%3D20">登录</a> 使用豆瓣</p></div>
+            <div><p>有异常请求从你的 IP 发出，请 <a href="https://accounts.douban.com/passport/login?redir=https%3A%2F%2Fmovie.douban.com%2Fj%2Fchart%2Ftop_list%3Ftype%3D17%26interval_id%3D100%253A90%26action%3D%26start%3D4%26limit%3D20">登录</a> 使用豆瓣</p></div>
         </div>
     </div>
 </body>

@@ -10,7 +10,7 @@ headers = {
 }
 
 # Load the param of Douban top love movie list into the utl.
-param = {
+love_param = {
         "type": "13",
         "interval_id": "100:90",
         "action": "",
@@ -20,11 +20,12 @@ param = {
 
 
 # Using for loop to obtain Douban love movie list Top 100.
+# love movies 13, sci-fic movie 17.
 start = 0
 for start in range(0,5):
 
     param = {
-        "type": "13",
+        "type": "17",
         "interval_id": "100:90",
         "action": "",
         "start": start,
@@ -40,8 +41,9 @@ for start in range(0,5):
     # print(response.request.headers)
     print()
     # pprint(response.json())
-    start = start * 20
     with open("Douban_love_movie.txt", mode="w") as f:
         f.write(response.text)
+    start = (start + 1) * 20
 
+# Otherwise, 403
 response.close()
