@@ -22,7 +22,8 @@ love_param = {
 # Using for loop to obtain Douban love movie list Top 100.
 # love movies 13, sci-fic movie 17.
 start = 0
-for start in range(0,5):
+
+for i in range(0,5):
 
     param = {
         "type": "17",
@@ -41,9 +42,9 @@ for start in range(0,5):
     # print(response.request.headers)
     print()
     # pprint(response.json())
-    with open("Douban_love_movie.txt", mode="w") as f:
+    with open("Douban_love_movie.txt", mode="a") as f:
         f.write(response.text)
-    start = (start + 1) * 20
+    start += 20
 
 # Otherwise, 403
 response.close()
