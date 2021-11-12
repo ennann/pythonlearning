@@ -1,25 +1,31 @@
-import numpy as np
 import pandas as pd
-import csv
+from pandas import ExcelWriter
 
-# read file and test.
-print('-'*10+'打印原始表格'+'-'*10)
-df = pd.read_excel(r"/Users/Elton/Downloads/Book1.xlsx")
+
+# Read file and print to double check.
+print('-'*10+'Check the original table content'+'-'*10)
+df = pd.read_excel(r"/Users/Elton/Downloads/服务台回收设备擦除记录11.11.xlsx", sheet_name="详情")
 print(df)
-# print(df.shape)
 
-# 查看维修与分类的数量多少
-# print(df.groupby('工单类型').count())
-# data_group = df.groupby(["工单类型", "工区"]).count()
-# groupby 函数还挺好用的，直接把两种类型的表格做到了计数
+# Export pivot table.
+print('-'*10+'Export pivot content.'+'-'*10)
+pivot_1 = pd.pivot_table(df, index=["工单类型", "工区"], values=["是否两小时", "是否擦除", "是否需要统计"], aggfunc="sum", margins=True).reset_index()
 
-
-# f = open("groupby.csv", mode="a")
-# csvwriter = csv.writer(f)
-# csvwriter.writerow(data_group)
+# Export group.
+data_group = df.groupby(["备注",]).count()
+print(data_group)
 
 
-# 第一次数据透视
-print('-'*10+'打印透视图表格'+'-'*10)
-pivot_1 = pd.pivot_table(df, index=["工单类型", "工区"], values=[u"是否需要统计", u"是否两小时"], aggfunc="count", margins=True).reset_index()
-pivot_1.to_csv("groupby.csv")
+# Write to Results file.
+with ExcelWriter('/Users/Elton/Downloads/Results.xlsx') as writer:
+    pivot_1.to_excel(writer, sheet_name="Sheet1")
+    data_group.to_excel(writer, sheet_name="Sheet2")
+
+
+print('-'*10+'保存完成'+'-'*10)
+
+# Notes
+#
+#
+# data_group.to_excel('/Users/Elton/Downloads/Results.xlsx',sheet_name="Sheet2")
+# pivot_2.to_excel('/Users/Elton/Downloads/Results.xlsx',sheet_name="Sheet2")
