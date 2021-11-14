@@ -25,8 +25,11 @@ with ExcelWriter('/Users/Elton/Downloads/Results.xlsx') as writer:
 
 print('-'*20+'File saved.'+'-'*20)
 
-# Notes
-#
-#
+"""
+Notes:
+
+
+
 # data_group.to_excel('/Users/Elton/Downloads/Results.xlsx',sheet_name="Sheet2")
 # pivot_2.to_excel('/Users/Elton/Downloads/Results.xlsx',sheet_name="Sheet2")
+"""

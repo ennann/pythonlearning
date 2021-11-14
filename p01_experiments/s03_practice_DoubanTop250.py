@@ -25,7 +25,6 @@ obj = re.compile(r'<li>.*?<em class="">(?P<ranking>.*?)'
 
 
 
-
 start = 0
 
 # Using for lop to GET Douban Top 250, by increase 25 each time.
@@ -37,10 +36,19 @@ for i in range(0, 10):
 
     response = requests.get(url=url, headers=headers, params=param)
 
+
     # Check HTTP conntection.
     status_code = response.status_code
     if status_code != 200:
         print("You need to check the network connection, may be your IP was blocked by Douban.")
+    else:
+        break
+
+    # Finding the charset code.
+    web_charset = re.compile(r'.*?charset=(.*?)">', re.S)
+    charset = web_charset.search(response.text).groups()[0]
+    print(f"***************The encoding method is: {charset}.***************")
+
 
     # Trans to text
     source_code = response.text
@@ -49,7 +57,7 @@ for i in range(0, 10):
     results = obj.finditer(source_code)
 
     # Creating a csv file.
-    f = open("top250.csv", mode="a")
+    f = open("top250.csv", mode="w")
     csvwriter = csv.writer(f)
 
     for it in results:
@@ -72,8 +80,8 @@ for i in range(0, 10):
     # Make code more like human.
     time.sleep(6)
 
-# Close file.
-f.close()
+    # Close file.
+    f.close()
 
 # Close connection.
 response.close()
