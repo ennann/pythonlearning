@@ -1,5 +1,4 @@
 # Obtain Douban Top 25 List, Storage as csv File.
-
 import requests
 import re
 import csv

@@ -30,6 +30,7 @@ s = """
 obj_css = re.compile(r"div class='(?P<Type>.*?)'><spam id='\d+'>(?P<Host>.*?)</spam></div>", re.S) # re.S: make dot(.) can find new line.
 results = obj_css.finditer(s)
 
+
 # temp storage
 for it in results:
     print("The host is: ", {it.group("Host")}, "type is: ",it.group("Type"))
