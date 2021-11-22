@@ -25,5 +25,6 @@ lists = page.find_all("div", attrs={"class": "info"})
 for item in lists:
     name = item.find_all("span", attrs={"class": "title"})
     link = item.find_all("a", attrs={"class": ""})[0]
-    print(name[0].text, link.get('href'))
+    rate = item.find_all("span", attrs={"class": "rating_num"})
+    print(name[0].text, link.get('href'), rate[0].text)
     print()
