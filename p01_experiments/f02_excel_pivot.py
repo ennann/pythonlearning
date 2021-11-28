@@ -11,11 +11,9 @@ print('*'*20+'Export pivot content.'+'*'*20)
 pivot_1 = pd.pivot_table(df, index=[ "工区"], values=["是否两小时", "是否擦除", "是否需要统计"],
                          aggfunc="sum", margins=True).reset_index()
 
-
 # Export group.
 print('*'*20+'Export group content.'+'*'*20)
 data_group = df.groupby(["备注"]).count()
-
 
 # Write to Results file.
 with ExcelWriter('/Users/Elton/Downloads/Results.xlsx') as writer:
