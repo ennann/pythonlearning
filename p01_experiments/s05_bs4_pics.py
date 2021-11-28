@@ -64,4 +64,4 @@ for item in results:
     # Add file path to the command.
     with open("/Users/Elton/Downloads/img/"+img_name, mode="wb") as f:
         f.write(img_response.content)
-    print("Done!!!")
+    print("File Saved.")
