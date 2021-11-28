@@ -65,3 +65,6 @@ for item in results:
     with open("/Users/Elton/Downloads/img/"+img_name, mode="wb") as f:
         f.write(img_response.content)
     print("File Saved.")
+
+f.close()
+response.close()
