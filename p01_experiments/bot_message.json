@@ -1,0 +1,105 @@
+message = {
+    "msg_type": "interactive",
+    "card": {
+        "elements": [
+          {
+            "tag": "markdown",
+            "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢\n[会议室特殊下线Case处理追踪](https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX)"
+          }
+        ]
+
+
+    }
+}
+
+
+    "elements": [
+      {
+        "tag": "div",
+        "text": {
+          "tag": "lark_md",
+          "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢。"
+        },
+        "extra": {
+          "tag": "button",
+          "text": {
+            "tag": "lark_md",
+            "content": "查看"
+          },
+          "type": "primary",
+          "url": "https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX"
+        }
+      }
+    ]
+
+
+
+
+        "elements": [
+            {
+                "tag": "div",
+                "text": {
+                "tag": "lark_md",
+                "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢。\n"
+                }
+            },
+            {
+                "tag": "action",
+                "actions": [
+                {
+                    "tag": "button",
+                    "text": {
+                    "tag": "plain_text",
+                    "content": "查看详情"
+                    },
+                    "type": "primary",
+                    "url": "https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX"
+                }
+                ]
+            }
+        ]
+
+
+
+# 打车机器人推送
+{
+  "msg_type": "interactive",
+  "card": {
+    "elements": [
+      {
+        "tag": "markdown",
+        "content": "<at id=all></at>"
+      },
+      {
+        "tag": "action",
+        "actions": [
+          {
+            "tag": "button",
+            "text": {
+              "tag": "plain_text",
+              "content": "去高德打车"
+            },
+            "type": "primary",
+            "url": "iosamap://"
+          },
+          {
+            "tag": "button",
+            "text": {
+              "tag": "plain_text",
+              "content": "去美团打车"
+            },
+            "type": "primary",
+            "url": "imeituan://"
+          }
+        ]
+      }
+    ],
+    "header": {
+      "template": "turquoise",
+      "title": {
+        "content": "🚖 打车手机到！",
+        "tag": "plain_text"
+      }
+    }        
+  }
+}

@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import os, stat
-import urllib.request
 
 
 
@@ -43,15 +41,16 @@ for item in results:
     sub_response.encoding = charset
 
     sub_page_source = BeautifulSoup(sub_response.text, "html.parser")
+
     # sub_results = sub_page_source.find_all("div", class_="ImageBody")
     #
-    # I can't get the img's src in the div element, so I created a list to restore the img's src.
+    # I can't get the image's src in the div element, so I created a list to restore the image's src.
     # for sub_item in sub_results:
     #     print(sub_item)
     #     So far so good.
     #     print()
 
-    # Get the sub_page img's url.
+    # Get the sub_page image's url.
     imglists = sub_page_source.find_all("img")
     img_url = imglists[0].get("src")
     img_name = img_url.split("/")[-1]
