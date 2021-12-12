@@ -4,7 +4,7 @@ from pandas import ExcelWriter
 
 # Read file and print to double check.
 print('*'*20+'Print original table.'+'*'*20)
-df = pd.read_excel(r"/Users/Elton/Downloads/服务台回收设备擦除记录11.26.xlsx", sheet_name="详情")
+df = pd.read_excel(r"/Users/Elton/Downloads/服务台回收设备擦除记录12.06.xlsx", sheet_name="详情")
 
 # Export pivot table.
 print('*'*20+'Export pivot content.'+'*'*20)

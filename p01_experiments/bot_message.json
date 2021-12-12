@@ -1,67 +1,52 @@
-message = {
-    "msg_type": "interactive",
-    "card": {
-        "elements": [
-          {
-            "tag": "markdown",
-            "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢\n[会议室特殊下线Case处理追踪](https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX)"
-          }
-        ]
+//  卡片 Json 基本样式，卡片制作工具需要设置为
+{
+  "msg_type": "interactive",
+  "card": {
 
-
-    }
+  }
 }
 
 
-    "elements": [
+// 会议室上下线提醒
+{
+  "msg_type": "interactive",
+  "card": {
+      "elements": [
       {
-        "tag": "div",
-        "text": {
-          "tag": "lark_md",
-          "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢。"
-        },
-        "extra": {
-          "tag": "button",
-          "text": {
-            "tag": "lark_md",
-            "content": "查看"
-          },
-          "type": "primary",
-          "url": "https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX"
-        }
-      }
-    ]
-
-
-
-
-        "elements": [
-            {
-                "tag": "div",
-                "text": {
-                "tag": "lark_md",
-                "content": "<at id=all></at>\n本周会议室上下线清单，请各位查收并通知站点同学，谢谢。\n"
-                }
+        "tag": "markdown",
+        "content": "<at id=all></at> 本周会议室上下线清单，请各位查收并通知站点同学，谢谢。\n"
+      },
+      {
+        "tag": "action",
+        "actions": [
+          {
+            "tag": "button",
+            "text": {
+              "tag": "plain_text",
+              "content": "查看表格"
             },
-            {
-                "tag": "action",
-                "actions": [
-                {
-                    "tag": "button",
-                    "text": {
-                    "tag": "plain_text",
-                    "content": "查看详情"
-                    },
-                    "type": "primary",
-                    "url": "https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX"
-                }
-                ]
-            }
+            "type": "primary",
+            "url": "https://bytedance.feishu.cn/sheets/shtcnhKKdbWShAF0w5BOUZUZBAX"
+          }
         ]
+      }
+    ],
+    "header": {
+      "template": "blue",
+      "title": {
+        "content": "🎦 会议室上下线提醒",
+        "tag": "plain_text"
+      }
+    }
+  }
+}
 
 
 
-# 打车机器人推送
+
+
+
+//  打车机器人推送
 {
   "msg_type": "interactive",
   "card": {
@@ -101,5 +86,34 @@ message = {
         "tag": "plain_text"
       }
     }        
+  }
+}
+
+
+
+
+
+// # 喝水简易版
+{
+  "msg_type": "interactive",
+  "card": {
+    "elements": [
+      {
+        "elements": [
+          {
+            "content": "多喝热水，重启试试",
+            "tag": "plain_text"
+          }
+        ],
+        "tag": "note"
+      }
+    ],
+    "header": {
+      "template": "blue",
+      "title": {
+        "content": "🍵 #Time to Drink Water.",
+        "tag": "plain_text"
+      }
+    }
   }
 }
