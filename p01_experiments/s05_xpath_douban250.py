@@ -7,7 +7,7 @@ from lxml import etree
 # Douban Top 250 url.
 url = "https://movie.douban.com/top250"
 
-# Defining headers.
+# Defining browser headers.
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36",
 }
@@ -16,6 +16,14 @@ headers = {
 # Set the initial paramater.
 start = 0
 page_num = 1
+
+# Creating a csv file, and write the header to the file.
+f = open("Top250.csv", mode="a")
+csvwriter = csv.writer(f)
+csv_header = ["电影中文名", "电影原名", "年份", "评分", "评价人数", "短评", "链接"]
+csvwriter.writerow(csv_header)
+
+
 
 # Enter the for loop.
 for i in range(0, 10):
@@ -45,11 +53,6 @@ for i in range(0, 10):
     print(f"第 {page_num} 页中的中电影元素个数是 {len(lists)}.")
 
 
-    # Creating a csv file.
-    f = open("Top250.csv", mode="a")
-    csvwriter = csv.writer(f)
-
-
     # Using XPath to obtain the movic elements.
     for item in lists:
         movie_name_zh = item.xpath('./div/div[2]/div[1]/a/span[1]/text()')[0]
@@ -72,12 +75,13 @@ for i in range(0, 10):
     start += 25
     page_num += 1
 
-    # Make code more like human.
+    # Let the code pause, and more like human.
     print("Sleep six seconds here.\n")
-    time.sleep(6)
+    time.sleep(1)
 
-    # Close file.
-    f.close()
+
+# Close file.
+f.close()
 
 # Close connection.
 response.close()
