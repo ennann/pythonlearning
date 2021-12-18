@@ -40,7 +40,6 @@ for i in range(0, 10):
     status_code = response.status_code
     if status_code != 200:
         print("You need to check the network connection, may be your IP was blocked by Douban.")
-    else:
         break
 
     # Finding the charset code.

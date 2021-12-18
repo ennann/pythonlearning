@@ -15,7 +15,8 @@ headers = {
 response = requests.get(url, headers=headers)
 
 # Find the web charset.
-web_charset = re.compile(r'.*?charset="(.*?)">', re.S)
+web_charset = re.cweb_charset = re.compile(r'.*?charset="(.*?)">', re.S)
+ompile(r'.*?charset="(.*?)">', re.S)
 charset = web_charset.search(response.text).groups()[0]
 print(f"***************The encoding method is: {charset}.***************")
 
