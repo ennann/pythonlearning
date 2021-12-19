@@ -18,7 +18,7 @@ start = 0
 page_num = 1
 
 # Creating a csv file, and write the header to the file.
-f = open("Top250.csv", mode="a")
+f = open("/Users/Elton/Downloads/Top250.csv", mode="a")
 csvwriter = csv.writer(f)
 csv_header = ["电影中文名", "电影原名", "年份", "评分", "评价人数", "短评", "链接"]
 csvwriter.writerow(csv_header)
@@ -42,7 +42,7 @@ for i in range(0, 10):
         break
 
 
-    # 解析源代码
+    # Decode the PageSource.
     page = response.text
 
     # Get tree file.
@@ -61,6 +61,11 @@ for i in range(0, 10):
         movie_rating = item.xpath('./div/div[2]/div[2]/div/span[2]/text()')[0]
         movie_rated_num = item.xpath('./div/div[2]/div[2]/div/span[4]/text()')[0].strip('人评价')
         movie_short_quote = item.xpath('./div/div[2]/div[2]/p[2]/span[1]/text()')
+        # Deal with some movie haven't a short comment.
+        if len(movie_short_quote) == 0:
+            movie_short_quote = ""
+        else:
+            movie_short_quote = movie_short_quote[0]
         movie_link = item.xpath('./div/div[1]/a/@href')[0]
 
         # List is indexed, better that dic.
