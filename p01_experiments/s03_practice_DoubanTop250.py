@@ -13,6 +13,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36",
 }
 
+
 # Pre-load R.E.
 # add ranking to double check any info was lost.
 obj = re.compile(r'<li>.*?<em class="">(?P<ranking>.*?)'
@@ -23,7 +24,7 @@ obj = re.compile(r'<li>.*?<em class="">(?P<ranking>.*?)'
                  r'</span>.*?<span>(?P<number>.*?)</span>', re.S)
 
 
-
+# The first param.
 start = 0
 
 # Using for lop to GET Douban Top 250, by increase 25 each time.
@@ -36,7 +37,7 @@ for i in range(0, 10):
     response = requests.get(url=url, headers=headers, params=param)
 
 
-    # Check HTTP conntection.
+    # Check HTTP conntection is OK or not.
     status_code = response.status_code
     if status_code != 200:
         print("You need to check the network connection, may be your IP was blocked by Douban.")
@@ -45,10 +46,11 @@ for i in range(0, 10):
     # Finding the charset code.
     web_charset = re.compile(r'.*?charset=(.*?)">', re.S)
     charset = web_charset.search(response.text).groups()[0]
+    # Show the web_charset.
     print(f"***************The encoding method is: {charset}.***************")
 
 
-    # Trans to text
+    # Trans to text.
     source_code = response.text
 
     # Using R.E. to find key info.
