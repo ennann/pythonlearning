@@ -15,8 +15,11 @@ async def aiodownload(url):
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36",
     }
     name = url.rsplit("/", 1)[1]
-    async with aiohttp.ClientSession() as session:
+    # Fix "unable to get local issuer"
+    conn = aiohttp.TCPConnector(ssl=False)
+    async with aiohttp.ClientSession(connector=conn) as session:
         async with session.get(url, headers=headers) as response:
+            # Need to learn **aiofiles** here
             with open(name, mode="wb") as f:
                 f.write(await response.content.read())
     print("1 picture downloaded.")
