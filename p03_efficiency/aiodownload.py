@@ -1,6 +1,5 @@
 import asyncio
 import certifi
-
 import aiohttp
 
 urls = [
