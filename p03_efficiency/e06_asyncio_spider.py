@@ -1,10 +1,10 @@
-import requests
 import asyncio
-import aiohttp
-import aiofiles
 import json
 import time
 
+import aiofiles
+import aiohttp
+import requests
 
 """
 Request getCatalog to get all the cid of a book.
@@ -13,6 +13,7 @@ https://dushu.baidu.com/api/pc/getCatalog?data={"book_id":"4306063500"}
 Request getChapterContent to download all the contents from the cid.
 https://dushu.baidu.com/api/pc/getChapterContent?data={"book_id":"4306063500","cid":"4306063500|1569782244","need_bookinfo":1}
 """
+
 
 #
 async def getChapterContent(bookid, cid, title):
@@ -67,6 +68,7 @@ async def getChapterid(book_id):
         # Need to provide async task here.
         tasks.append(getChapterContent(bookid=book_id, cid=chapter_id, title=chapter_title))
     await asyncio.wait(tasks)
+
 
 # Run
 if __name__ == '__main__':
