@@ -24,7 +24,7 @@ print(f"The results is: {ret}")
 #
 s = """
 <div class='VPS'><spam id='1'>DMIT</spam></div>
-<div class='NAT'><spam id='5'>AnyHK</spam></div>
+<div class='NAT'><spam id='5'>AnHK</spam></div>
 """
 
 obj_css = re.compile(r"div class='(?P<Type>.*?)'><spam id='\d+'>(?P<Host>.*?)</spam></div>", re.S) # re.S: make dot(.) can find new line.

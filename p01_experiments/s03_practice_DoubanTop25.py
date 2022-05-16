@@ -1,7 +1,7 @@
 # Obtain Douban Top 25 List, Storage as json File.
-import requests
 import re
 
+import requests
 
 # URL of Douban top lists.
 url = "https://movie.douban.com/top250"
@@ -30,7 +30,7 @@ obj = re.compile(r'<li>.*?<div class="item">.*?<span class="title">(?P<name>.*?)
                  r'</span>.*?<span>(?P<number>.*?)</span>', re.S)
 
 results = obj.finditer(page_contents)
-
+print(results.group())
 
 # Close connection.
 response.close()

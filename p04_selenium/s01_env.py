@@ -1,7 +1,9 @@
 import time
 
 from selenium.webdriver import Chrome
+# import By function, because python will
 from selenium.webdriver.common.by import By
+# import Keyboard.
 from selenium.webdriver.common.keys import Keys
 
 web = Chrome()
@@ -17,7 +19,7 @@ city.click()
 # ad.click()
 # time.sleep(3)
 
-web.find_element(By.XPATH, '//*[@id="search_input"]').send_keys("Python", Keys.ENTER)
+web.find_element(By.XPATH, '//*[@id="search_input"]').send_keys("架构", Keys.ENTER)
 time.sleep(3)
 
 job_list = web.find_elements(By.XPATH, '//*[@id="s_position_list"]/ul/li')
