@@ -31,8 +31,20 @@ for i in range(1, 21):
     elif i > 2:
         num = num_1 + num_2
         print(f"The {i}th number is {num}")
-        num_2 = num_1
-        num_1 = num
+        num_2, num_1 = num_1, num
+
+
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+        yield a
+
+
+def main():
+    for val in fib(20):
+        print(val)
+
 
 # 找出10000以内的完美数。
 
@@ -51,3 +63,6 @@ for number in range(1, 10001):
         for ele in factors:
             string = string + " + " + str(ele)
         print(str(number), string)
+
+if __name__ == '__main__':
+    main()
