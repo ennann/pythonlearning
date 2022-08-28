@@ -48,7 +48,7 @@ for i in range(1, len(csv_data)):
     # 设置数据标签
     for a, b in zip(df['时间'], df['成绩']):
         if b == np.nan: continue  # 跳过 NaN 值
-        plt.text(a, b + 5, '%.0f' % b, va='bottom', ha='center', fontsize=10,
+        plt.text(a, b - (y_max - y_min) * 0.1, '%.0f' % b, va='bottom', ha='center', fontsize=10,
                  bbox=dict(boxstyle='round,pad=0.5', facecolor=(0.98, 0.83, 0.52), edgecolor='k', lw=1, alpha=0.5))
 
     plt.title(csv_data[i][0], fontsize=22)
