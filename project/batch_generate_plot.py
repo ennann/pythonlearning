@@ -43,7 +43,7 @@ for i in range(1, len(csv_data)):
     y_min = min([ele for ele in df['成绩'] if np.isnan(ele) == False])
 
     # 设置坐标轴范围
-    plt.ylim(y_max + 15, y_min - 20)
+    plt.ylim(y_max + 15, y_min - 30)
 
     # 设置数据标签
     for a, b in zip(df['时间'], df['成绩']):
